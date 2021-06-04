@@ -6,7 +6,7 @@ services:
     restart: always
     container_name: sit-cc-minio
     volumes:
-      - /home/ubuntu/efs/sit-careers:/data
+      - /home/ubuntu/mnt/storage/sit-careers:/data
     ports:
       - 9000:9000
     command: server /data
