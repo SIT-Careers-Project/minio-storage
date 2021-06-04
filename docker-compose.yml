@@ -1,0 +1,28 @@
+version: "3.8"
+services:
+
+  minio:
+    image: minio/minio
+    restart: always
+    container_name: sit-cc-minio
+    volumes:
+      - /home/ubuntu/efs/sit-careers:/data
+    ports:
+      - 9000:9000
+    command: server /data
+    env_file: 
+      - .minio.env
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:9000/minio/health/live"]
+      interval: 30s
+      timeout: 20s
+      retries: 3 
+    networks:
+      - sit-careers
+      - sit-careers-api_sit-careers
+
+networks:
+  sit-careers:
+    driver: bridge
+  sit-careers-api_sit-careers:
+    external: true

@@ -1,0 +1,62 @@
+{
+    "Statement": [
+        {
+            "Action": [
+                "s3:GetBucketLocation"
+            ],
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": [
+                    "*"
+                ]
+            },
+            "Resource": [
+                "arn:aws:s3:::sit-careers-dev"
+            ]
+        },
+        {
+            "Action": [
+                "s3:ListBucket"
+            ],
+            "Condition": {
+                "StringEquals": {
+                    "s3:prefix": [
+                        "logo/*",
+                        "banner/*",
+                        "cover_announcement/*",
+                        "reports/*",
+                        "resume/*"
+                    ]
+                }
+            },
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": [
+                    "*"
+                ]
+            },
+            "Resource": [
+                "arn:aws:s3:::sit-careers-dev"
+            ]
+        },
+        {
+            "Action": [
+                "s3:GetObject"
+            ],
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": [
+                    "*"
+                ]
+            },
+            "Resource": [
+                "arn:aws:s3:::sit-careers-dev/logo/**",
+                "arn:aws:s3:::sit-careers-dev/banner/**",
+                "arn:aws:s3:::sit-careers-dev/cover_announcement/**",
+                "arn:aws:s3:::sit-careers-dev/reports/**",
+                "arn:aws:s3:::sit-careers-dev/resume/**"
+            ]
+        }
+    ],
+    "Version": "2012-10-17"
+}
