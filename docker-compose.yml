@@ -6,10 +6,11 @@ services:
     restart: always
     container_name: sit-cc-minio
     volumes:
-      - /home/ubuntu/mnt/storage/sit-careers:/data
+      - $HOME/mnt/storage/sit-careers:/data
     ports:
       - 9000:9000
-    command: server /data
+      - 9001:9001
+    command: server /data --console-address ":9001"
     env_file: 
       - .minio.env
     healthcheck:
