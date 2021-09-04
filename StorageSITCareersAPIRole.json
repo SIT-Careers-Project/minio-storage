@@ -11,8 +11,7 @@
                 "s3:DeleteObject"
             ],
             "Resource": [
-                "arn:aws:s3:::sit-careers/*",
-                "arn:aws:s3:::sit-careers-dev/*"
+                "arn:aws:s3:::sit-careers/*"
             ]
         }
     ]
