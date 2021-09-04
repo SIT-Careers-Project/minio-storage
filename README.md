@@ -4,6 +4,7 @@
 ```bash
 docker run --rm -it --entrypoint=/bin/sh minio/mc
 mc alias set minio <MINIO_ENVPOINT> <MINIO_ACCESS_KEY> <MINIO_SECRET_KEY>
+mc alias set minio http://localhost:9000 test_user password
 ```
 
 #### Set policy public bucket
